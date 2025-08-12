@@ -10,7 +10,7 @@ def get_gemini_response(input_prompt, image_list):
     """
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
-        return "Error: This application will be fixed shortly. Please contact the developer for assistance."
+        return "Error: Please provide your Google API Key in the sidebar to continue."
     
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel('gemini-1.5-flash-latest')
@@ -22,5 +22,5 @@ def get_gemini_response(input_prompt, image_list):
         return response.text
     except Exception as e:
         if "API key not valid" in str(e):
-            return "Error: This application will be fixed shortly. Please contact the developer for assistance."
+            return "Error: The provided API key is not valid. Please check your API key and try again."
         return f"An error occurred: {e}"
