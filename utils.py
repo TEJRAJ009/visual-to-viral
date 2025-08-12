@@ -3,9 +3,6 @@ import google.generativeai as genai
 import os
 from PIL import Image
 
-# --- API KEY HANDLING ---
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-
 # --- HELPER FUNCTION ---
 def get_gemini_response(input_prompt, image_list):
     """
@@ -14,7 +11,8 @@ def get_gemini_response(input_prompt, image_list):
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
         return "Error: This application will be fixed shortly. Please contact the developer for assistance."
-        
+    
+    genai.configure(api_key=api_key)
     model = genai.GenerativeModel('gemini-1.5-flash-latest')
     
     content = [input_prompt] + image_list
