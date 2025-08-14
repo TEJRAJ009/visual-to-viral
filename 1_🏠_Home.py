@@ -15,7 +15,7 @@ st.title("✍️ Visual-to-Viral E-commerce Assistant")
 st.markdown("From a simple product shot to a full marketing campaign! ✨")
 
 # --- API KEY HANDLING ---
-api_key_input = st.sidebar.text_input("Enter your Google API Key", type="password")
+api_key_input = st.sidebar.text_input("Enter your Google API Key", type="password", value=os.getenv("GOOGLE_API_KEY"))
 
 if api_key_input:
     os.environ["GOOGLE_API_KEY"] = api_key_input
