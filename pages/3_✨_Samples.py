@@ -80,7 +80,7 @@ with tab1:
         with col1:
             st.subheader(tab1_title)
             image = Image.open(sample["image_path"])
-            st.image(image, use_container_width=True)
+            st.image(image)
             st.metric(label=sample["metric_label"], value=sample["metric_value"])
             st.info(f"**Notes:** {sample['notes']}")
         with col2:
@@ -95,7 +95,7 @@ with tab2:
             st.subheader(tab2_title)
             try:
                 image = Image.open(requests.get(sample["image_url"], stream=True).raw)
-                st.image(image, use_container_width=True)
+                st.image(image)
                 st.metric(label=sample["metric_label"], value=sample["metric_value"])
             except Exception as e:
                 st.error(f"Could not load image. {e}")
