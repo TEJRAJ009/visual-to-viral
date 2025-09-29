@@ -8,7 +8,7 @@ def get_gemini_response(input_prompt, image_list):
     """
     Function to get response from Gemini, now handling multiple images.
     """
-    api_key = os.getenv("GOOGLE_API_KEY")
+    api_key = os.getenv("AIzaSyCLhXTQlEwbJRvfAUuLY23lLToSlKLouTw")
     if not api_key:
         return "Error: Please provide your Google API Key in the sidebar to continue."
     
